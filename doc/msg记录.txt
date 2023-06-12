@@ -1,0 +1,88 @@
+//普通私聊消息
+{
+	"version": "1.0",
+	"header": {
+		"eventId": "136e0f4238c148619ed6eb5045daa206",
+		"eventType": "message.receive.normal",
+		"eventTime": 1686556752890
+	},
+	"event": {
+		"sender": {
+			"senderId": "4137637",
+			"senderType": "user",
+			"senderUserLevel": "member",
+			"senderNickname": "Daen"
+		},
+		"chat": {
+			"chatId": "30122181",
+			"chatType": "bot"
+		},
+		"message": {
+			"msgId": "cdb594c950b5467eb5221d768c940a68",
+			"parentId": "",
+			"sendTime": 1686556752884,
+			"chatId": "30122181",
+			"chatType": "bot",
+			"contentType": "text",
+			"content": {
+				"text": "测试"
+			},
+			"instructionId": 0,
+			"instructionName": ""
+		}
+	}
+}
+
+//普通群聊消息
+{
+	"version": "1.0",
+	"header": {
+		"eventId": "b8f8a5adbcec441fa9a9ee68fc993d83",
+		"eventType": "message.receive.normal",
+		"eventTime": 1686556914687
+	},
+	"event": {
+		"sender": {
+			"senderId": "4137637",
+			"senderType": "user",
+			"senderUserLevel": "owner",
+			"senderNickname": "Daen"
+		},
+		"chat": {
+			"chatId": "956034802",
+			"chatType": "group"
+		},
+		"message": {
+			"msgId": "326f1fb3609049959fbd01597c1ea45b",
+			"parentId": "",
+			"sendTime": 1686556914678,
+			"chatId": "956034802",
+			"chatType": "group",
+			"contentType": "text",
+			"content": {
+				"text": "CF"
+			},
+			"instructionId": 0,
+			"instructionName": ""
+		}
+	}
+}
+
+//Bot设置事件
+{
+	"version": "1.0",
+	"header": {
+		"eventId": "89ffc0f89209455ba1623960fa44f23a",
+		"eventType": "bot.setting",
+		"eventTime": 1686559915728
+	},
+	"event": {
+		"time": 1686559915726,
+		"chatId": "30122181",
+		"chatType": "bot",
+		"groupId": "956034802",
+		"groupName": "测试群",
+		"avatarUrl": "https://chat-img.jwznb.com/4a7395d03e9332bca7cf194374ae57da.jpg",
+		"settingJson": "{\"jfzvum\":{\"id\":\"jfzvum\",\"type\":\"radio\",\"label\":\"测试\",\"selectIndex\":0,\"selectValue\":\"阿萨德\"},\"zfmzxu\":{\"id\":\"zfmzxu\",\"type\":\"input\",\"label\":\"测试\",\"value\":\"1\"}}"
+	}
+}
