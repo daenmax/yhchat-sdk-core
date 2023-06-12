@@ -1,4 +1,4 @@
-package cn.daenx.yhchatsdk.framework.controller;
+package cn.daenx.yhchatsdk.framework;
 
 public class MyTask implements Runnable{
     /**

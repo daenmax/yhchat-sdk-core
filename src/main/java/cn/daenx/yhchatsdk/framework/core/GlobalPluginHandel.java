@@ -8,19 +8,23 @@ import java.util.List;
 public class GlobalPluginHandel {
 
     private static final GlobalPluginHandel INSTANCE = new GlobalPluginHandel();
-    private List<EventVo.EventMessageReceiveNormalVo> dataList = new ArrayList<>();
 
     private GlobalPluginHandel() {
-        // 私有构造方法，避免外部实例化
     }
 
     public static GlobalPluginHandel getInstance() {
         return INSTANCE;
     }
 
-    public List<EventVo.EventMessageReceiveNormalVo> getDataList() {
-        return dataList;
+
+    private List<EventVo.EventMessageReceiveNormalVo> eventMessageReceiveNormalVos = new ArrayList<>();
+    public List<EventVo.EventMessageReceiveNormalVo> getEventMessageReceiveNormalVos() {
+        return eventMessageReceiveNormalVos;
     }
 
+    private List<EventVo.EventMessageReceiveInstructionVo> EventMessageReceiveInstructionVos = new ArrayList<>();
 
+    public List<EventVo.EventMessageReceiveInstructionVo> getEventMessageReceiveInstructionVos() {
+        return EventMessageReceiveInstructionVos;
+    }
 }

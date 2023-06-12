@@ -6,11 +6,11 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 @Service
-@Order(2)//默认为0
-public class impl1 implements EventMessageReceiveNormal {
+@Order(1)//默认为0
+public class MsgNormal2 implements EventMessageReceiveNormal {
     @Override
     public Integer handle(EventMsgVo eventMsgVo) {
-        System.out.println("执行1");
+        System.out.println("执行2");
         return 0;
     }
 }
