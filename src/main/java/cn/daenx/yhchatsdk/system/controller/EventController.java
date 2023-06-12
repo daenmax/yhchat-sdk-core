@@ -3,12 +3,13 @@ package cn.daenx.yhchatsdk.system.controller;
 
 import cn.daenx.yhchatsdk.common.utils.ServletUtils;
 import cn.daenx.yhchatsdk.common.vo.Result;
+import cn.daenx.yhchatsdk.system.GlobalThreadPool;
 import cn.daenx.yhchatsdk.system.vo.EventMsgVo;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.concurrent.ExecutorService;
 
 /**
  * 云湖事件
@@ -42,5 +43,14 @@ public class EventController {
         return Result.ok();
     }
 
+    @GetMapping("/test")
+    public Result test() {
+
+        ExecutorService executorService = GlobalThreadPool.getExecutorService();
+        for (int i = 0; i < 10; i++) {
+            executorService.execute(new MyTask("小明" + i));
+        }
+        return Result.ok();
+    }
 
 }
