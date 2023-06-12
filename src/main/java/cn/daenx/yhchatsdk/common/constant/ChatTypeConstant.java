@@ -1,4 +1,4 @@
-package cn.daenx.yhchatsdk.system.constant;
+package cn.daenx.yhchatsdk.common.constant;
 
 /**
  * 聊天对象类型

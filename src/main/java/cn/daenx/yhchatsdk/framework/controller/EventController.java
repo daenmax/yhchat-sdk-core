@@ -1,15 +1,12 @@
-package cn.daenx.yhchatsdk.system.controller;
+package cn.daenx.yhchatsdk.framework.controller;
 
 
 import cn.daenx.yhchatsdk.common.utils.ServletUtils;
 import cn.daenx.yhchatsdk.common.vo.Result;
-import cn.daenx.yhchatsdk.system.GlobalThreadPool;
-import cn.daenx.yhchatsdk.system.vo.EventMsgVo;
-import jakarta.annotation.Resource;
+import cn.daenx.yhchatsdk.framework.core.GlobalEventHandle;
+import cn.daenx.yhchatsdk.common.vo.EventMsgVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.concurrent.ExecutorService;
 
 /**
  * 云湖事件
@@ -45,11 +42,9 @@ public class EventController {
 
     @GetMapping("/test")
     public Result test() {
-
-        ExecutorService executorService = GlobalThreadPool.getExecutorService();
-        for (int i = 0; i < 10; i++) {
-            executorService.execute(new MyTask("小明" + i));
-        }
+        EventMsgVo eventMsgVo = new EventMsgVo();
+        eventMsgVo.setVersion("1.0.0");
+        GlobalEventHandle.eventMessageReceiveNormal(eventMsgVo);
         return Result.ok();
     }
 

@@ -1,4 +1,4 @@
-package cn.daenx.yhchatsdk.system.constant.enums;
+package cn.daenx.yhchatsdk.common.constant.enums;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,18 +6,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 事件
+ * 服务端错误代码
  */
-public enum EventType {
+public enum ServerErrCode {
 
-    MESSAGE_RECEIVE_NORMAL("message.receive.normal", "普通消息事件"),
-    MESSAGE_RECEIVE_INSTRUCTION("message.receive.instruction", "指令消息事件"),
-    BOT_FOLLOWED("bot.followed", "关注机器人事件"),
-    BOT_UNFOLLOWED("bot.unfollowed", "取消关注机器人事件"),
-    GROUP_JOIN("group.join", "加入群事件"),
-    GROUP_LEAVE("group.leave", "退出群事件"),
-    BUTTON_REPORT_INLINE("button.report.inline", "按钮事件"),
-    BOT_SETTING("bot.setting", "机器人设置事件");
+    SUCCESS("1", "正常"),
+    INVALID_PARAMETER("1002", "参数缺失或者有误"),
+    UNAUTHORIZED("1003", "未授权"),
+    BOT_BANNED("1004", "机器人被封禁"),
+    CHAT_BANNED("1005", "会话被封禁"),
+    FREQUENCY_LIMIT("1007", "触发频次限制");
 
     private String code;
     private String desc;
@@ -28,7 +26,7 @@ public enum EventType {
     static {
         map = new HashMap<>();
         list = new ArrayList<>();
-        for (EventType value : EventType.values()) {
+        for (ServerErrCode value : ServerErrCode.values()) {
             map.put(value.getCode(), value.getDesc());
             list.add(value.getCode());
         }
@@ -46,12 +44,12 @@ public enum EventType {
         return list.contains(code);
     }
 
-    EventType(String code, String desc) {
+    ServerErrCode(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }
 
-    EventType() {
+    ServerErrCode() {
     }
 
     public String getCode() {

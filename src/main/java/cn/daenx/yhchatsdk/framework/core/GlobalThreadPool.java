@@ -1,4 +1,4 @@
-package cn.daenx.yhchatsdk.system;
+package cn.daenx.yhchatsdk.framework.core;
 
 import cn.hutool.core.thread.ExecutorBuilder;
 
