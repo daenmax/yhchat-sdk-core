@@ -9,11 +9,7 @@ import org.springframework.stereotype.Service;
 @Order(2)//默认为0
 public class MsgNormal1 implements EventMessageReceiveNormal {
     @Override
-    public Integer handle(EventMsgVo eventMsgVo) throws Exception {
-        if(true){
-
-            throw new Exception("");
-        }
+    public Integer handle(EventMsgVo eventMsgVo) {
         System.out.println(eventMsgVo.getVersion());
         return 0;
     }

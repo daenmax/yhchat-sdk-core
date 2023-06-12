@@ -12,5 +12,5 @@ public interface EventMessageReceiveNormal {
      *
      * @return
      */
-    Integer handle(EventMsgVo eventMsgVo) throws Exception;
+    Integer handle(EventMsgVo eventMsgVo);
 }
