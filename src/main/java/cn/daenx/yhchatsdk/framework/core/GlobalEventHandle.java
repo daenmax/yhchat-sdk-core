@@ -1,7 +1,8 @@
 package cn.daenx.yhchatsdk.framework.core;
 
-import cn.daenx.yhchatsdk.common.vo.EventVo;
+import cn.daenx.yhchatsdk.common.constant.enums.EventType;
 import cn.daenx.yhchatsdk.common.vo.EventMsgVo;
+import cn.daenx.yhchatsdk.common.vo.EventVo;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -10,7 +11,8 @@ import java.util.List;
  * 事件处理分发器
  */
 @Slf4j
-public class GlobalEventHandle {
+public class GlobalEventHandle implements Runnable {
+
     private static GlobalPluginHandel globalPluginHandel;
 
     private static GlobalPluginHandel getGlobalPluginHandel() {
@@ -18,6 +20,23 @@ public class GlobalEventHandle {
             globalPluginHandel = GlobalPluginHandel.getInstance();
         }
         return globalPluginHandel;
+    }
+
+    private EventMsgVo eventMsgVo;
+
+    public GlobalEventHandle(EventMsgVo eventMsgVo) {
+        this.eventMsgVo = eventMsgVo;
+    }
+
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + eventMsgVo);
+        String eventType = eventMsgVo.getHeader().getEventType();
+        if (EventType.MESSAGE_RECEIVE_NORMAL.getCode().equals(eventType)) {
+            eventMessageReceiveNormal(eventMsgVo);
+        } else if (EventType.MESSAGE_RECEIVE_INSTRUCTION.getCode().equals(eventType)) {
+            eventMessageReceiveInstruction(eventMsgVo);
+        }
     }
 
     /**
@@ -62,5 +81,4 @@ public class GlobalEventHandle {
             }
         }
     }
-
 }

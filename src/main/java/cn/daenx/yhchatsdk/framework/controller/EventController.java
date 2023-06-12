@@ -4,7 +4,7 @@ package cn.daenx.yhchatsdk.framework.controller;
 import cn.daenx.yhchatsdk.common.constant.enums.EventType;
 import cn.daenx.yhchatsdk.common.utils.ServletUtils;
 import cn.daenx.yhchatsdk.common.vo.Result;
-import cn.daenx.yhchatsdk.framework.core.GlobalEventHandle;
+import cn.daenx.yhchatsdk.framework.core.GlobalExecutorSubmit;
 import cn.daenx.yhchatsdk.common.vo.EventMsgVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -27,11 +27,7 @@ public class EventController {
         String clientIP = ServletUtils.getClientIP();
         String eventType = eventMsgVo.getHeader().getEventType();
         log.info("接收到来自IP[{}]的请求消息：{}，原始消息为{}", clientIP, eventType, eventMsgVo.toString());
-        if (EventType.MESSAGE_RECEIVE_NORMAL.getCode().equals(eventType)) {
-            GlobalEventHandle.eventMessageReceiveNormal(eventMsgVo);
-        } else if (EventType.MESSAGE_RECEIVE_INSTRUCTION.getCode().equals(eventType)) {
-            GlobalEventHandle.eventMessageReceiveInstruction(eventMsgVo);
-        }
+        GlobalExecutorSubmit.sub(eventMsgVo);
         return Result.ok();
     }
 
@@ -51,7 +47,10 @@ public class EventController {
     public Result test() {
         EventMsgVo eventMsgVo = new EventMsgVo();
         eventMsgVo.setVersion("1.0.0");
-        GlobalEventHandle.eventMessageReceiveNormal(eventMsgVo);
+        EventMsgVo.Header header = new EventMsgVo.Header();
+        header.setEventType(EventType.MESSAGE_RECEIVE_NORMAL.getCode());
+        eventMsgVo.setHeader(header);
+        GlobalExecutorSubmit.sub(eventMsgVo);
         return Result.ok();
     }
 
