@@ -45,15 +45,40 @@ public class EventMsgVo {
         /**
          * bot.setting
          */
+
         /**
          * 13位时间戳
          */
         private Long time;
+
+        /**
+         * 机器人ID
+         */
         private String chatId;
+
+        /**
+         * bot
+         */
         private String chatType;
+
+        /**
+         * 群ID
+         */
         private String groupId;
+
+        /**
+         * 群昵称
+         */
         private String groupName;
+
+        /**
+         * 群头像
+         */
         private String avatarUrl;
+
+        /**
+         * JSON字符串，自行解析
+         */
         private String settingJson;
 
 
