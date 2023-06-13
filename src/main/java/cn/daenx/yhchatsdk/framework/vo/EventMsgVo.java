@@ -2,6 +2,8 @@ package cn.daenx.yhchatsdk.framework.vo;
 
 import lombok.Data;
 
+import java.util.HashMap;
+
 /**
  * 消息事件
  */
@@ -196,6 +198,11 @@ public class EventMsgVo {
                  * 当消息类型为image、file时，有值
                  */
                 private String etag;
+
+                /**
+                 * 当消息类型为form时，有值
+                 */
+                private HashMap<String, HashMap<String, Object>> formJson;
             }
         }
     }

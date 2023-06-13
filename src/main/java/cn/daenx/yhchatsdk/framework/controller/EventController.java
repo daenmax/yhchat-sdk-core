@@ -29,27 +29,15 @@ public class EventController {
         return Result.ok();
     }
 
-    /**
-     * 接收云湖事件推送
-     *
-     * @return
-     */
-    @PostMapping("/msg2")
-    public Result msg2(@RequestBody String eventMsgVo) {
-        String clientIP = ServletUtils.getClientIP();
-        log.info("接收到来自IP[{}]的请求消息：{}", clientIP, eventMsgVo);
-        return Result.ok();
-    }
-
-    @GetMapping("/test")
-    public Result test() {
-        EventMsgVo eventMsgVo = new EventMsgVo();
-        eventMsgVo.setVersion("1.0.0");
-        EventMsgVo.Header header = new EventMsgVo.Header();
-        header.setEventType(EventType.MESSAGE_RECEIVE_NORMAL.getCode());
-        eventMsgVo.setHeader(header);
-        GlobalExecutorSubmit.submit(eventMsgVo);
-        return Result.ok();
-    }
+//    /**
+//     * 接收云湖事件推送
+//     *
+//     * @return
+//     */
+//    @PostMapping("/msg")
+//    public Result msg(@RequestBody String eventMsgVo) {
+//        log.info(eventMsgVo);
+//        return Result.ok();
+//    }
 
 }
