@@ -1,12 +1,5 @@
-spring:
-  profiles:
-    active: @profiles.active@
-  application:
-    name: yhchatsdk
-
-# 日志
-logging:
-  level:
-    cn.daenx.myadmin: @logging.level@
-    org.springframework: warn
-  config: classpath:logback.xml
+# 这个只是我开发core时测试使用，实际发布时，这个可以去掉，因为在引用此core时，这个值会被覆盖掉
+server:
+  port: 8034
+  servlet:
+    context-path: /yhchat

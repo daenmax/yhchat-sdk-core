@@ -30,7 +30,6 @@ public class GlobalEventHandle implements Runnable {
 
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName() + eventMsgVo);
         String eventType = eventMsgVo.getHeader().getEventType();
         if (EventType.MESSAGE_RECEIVE_NORMAL.getCode().equals(eventType)) {
             eventMessageReceiveNormal(eventMsgVo);
