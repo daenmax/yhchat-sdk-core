@@ -200,7 +200,7 @@ public class EventMsgVo {
                 private String etag;
 
                 /**
-                 * 当消息类型为form时，有值
+                 * 当消息类型为form（指令消息事件时，并且指令类型为自定义输入时）时，有值
                  */
                 private HashMap<String, HashMap<String, Object>> formJson;
             }
