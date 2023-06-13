@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>cn.daenx</groupId>
-    <artifactId>yhchatSdk</artifactId>
+    <artifactId>yhchat-sdk-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>yhchatSdk</name>
-    <description>yhchatSdk</description>
+    <name>yhchat-sdk-core</name>
+    <description>yhchat-sdk-core</description>
     <properties>
         <java.version>17</java.version>
         <spring-boot.version>3.0.6</spring-boot.version>
