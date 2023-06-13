@@ -16,7 +16,7 @@ public enum EventType {
     BOT_UNFOLLOWED("bot.unfollowed", "取消关注机器人事件"),
     GROUP_JOIN("group.join", "加入群事件"),
     GROUP_LEAVE("group.leave", "退出群事件"),
-    BUTTON_REPORT_INLINE("button.report.inline", "按钮事件"),
+    BUTTON_REPORT_INLINE("button.report.inline", "消息中按钮点击事件"),
     BOT_SETTING("bot.setting", "机器人设置事件");
 
     private String code;
