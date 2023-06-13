@@ -3,3 +3,6 @@ server:
   port: 8034
   servlet:
     context-path: /yhchat
+
+yhchat:
+  token: "default"

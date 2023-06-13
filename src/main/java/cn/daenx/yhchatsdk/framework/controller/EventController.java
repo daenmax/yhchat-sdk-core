@@ -5,7 +5,7 @@ import cn.daenx.yhchatsdk.common.constant.enums.EventType;
 import cn.daenx.yhchatsdk.common.utils.ServletUtils;
 import cn.daenx.yhchatsdk.common.vo.Result;
 import cn.daenx.yhchatsdk.framework.core.GlobalExecutorSubmit;
-import cn.daenx.yhchatsdk.common.vo.EventMsgVo;
+import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,7 @@
 package cn.daenx.yhchatsdk.framework.core;
 
 import cn.daenx.yhchatsdk.common.constant.enums.EventType;
-import cn.daenx.yhchatsdk.common.vo.EventMsgVo;
+import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 import cn.daenx.yhchatsdk.common.vo.EventVo;
 import lombok.extern.slf4j.Slf4j;
 

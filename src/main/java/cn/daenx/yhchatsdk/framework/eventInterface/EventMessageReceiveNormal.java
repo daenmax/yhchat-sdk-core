@@ -1,6 +1,6 @@
 package cn.daenx.yhchatsdk.framework.eventInterface;
 
-import cn.daenx.yhchatsdk.common.vo.EventMsgVo;
+import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 
 /**
  * 普通消息事件

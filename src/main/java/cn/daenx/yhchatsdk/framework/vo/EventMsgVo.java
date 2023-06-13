@@ -1,4 +1,4 @@
-package cn.daenx.yhchatsdk.common.vo;
+package cn.daenx.yhchatsdk.framework.vo;
 
 import lombok.Data;
 
