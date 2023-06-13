@@ -6,7 +6,7 @@ import lombok.Data;
  * 接口响应体
  */
 @Data
-public class ApiSendRetV1 {
+public class ApiSendMsgRetV1 {
     /**
      * 1=成功
      */

@@ -1,6 +1,9 @@
 package cn.daenx.yhchatsdk.framework.utils;
 
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendRetV1;
+import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgBatchReqV1;
+import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgReqV1;
+import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgBatchRetV1;
+import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgRetV1;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,19 +23,31 @@ public class ApiUtil {
         return token;
     }
 
-    public static ApiSendRetV1 sendMsg() {
+    /**
+     * 发送消息
+     *
+     * @param apiSendMsgReqV1
+     * @return
+     */
+    public static ApiSendMsgRetV1 sendMsg(ApiSendMsgReqV1 apiSendMsgReqV1) {
         String urlPost = url + "/send?token=" + token;
-        String content = "{\n" +
-                "    \"recvId\": \"4137637\",\n" +
-                "    \"recvType\": \"user\",\n" +
-                "    \"contentType\": \"text\",\n" +
-                "    \"content\": {\n" +
-                "        \"text\": \"测试\"\n" +
-                "    }\n" +
-                "}";
+        String content = JSONUtil.toJsonStr(apiSendMsgReqV1);
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
-        System.out.println(body);
-        ApiSendRetV1 apiSendRetV1 = JSONUtil.toBean(body, ApiSendRetV1.class);
-        return apiSendRetV1;
+        ApiSendMsgRetV1 apiSendMsgRetV1 = JSONUtil.toBean(body, ApiSendMsgRetV1.class);
+        return apiSendMsgRetV1;
+    }
+
+    /**
+     * 批量发送消息
+     *
+     * @param apiSendMsgBatchReqV1
+     * @return
+     */
+    public static ApiSendMsgBatchRetV1 sendMsgBatch(ApiSendMsgBatchReqV1 apiSendMsgBatchReqV1) {
+        String urlPost = url + "/batch_send?token=" + token;
+        String content = JSONUtil.toJsonStr(apiSendMsgBatchReqV1);
+        String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
+        ApiSendMsgBatchRetV1 apiSendMsgBatchRetV1 = JSONUtil.toBean(body, ApiSendMsgBatchRetV1.class);
+        return apiSendMsgBatchRetV1;
     }
 }

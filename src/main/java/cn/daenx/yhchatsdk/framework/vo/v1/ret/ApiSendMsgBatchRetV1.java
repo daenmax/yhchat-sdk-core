@@ -8,7 +8,7 @@ import java.util.List;
  * 接口响应体
  */
 @Data
-public class ApiSendBatchRetV1 {
+public class ApiSendMsgBatchRetV1 {
     /**
      * 1=成功
      */
