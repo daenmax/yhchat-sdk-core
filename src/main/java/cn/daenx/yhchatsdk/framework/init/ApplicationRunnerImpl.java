@@ -61,17 +61,15 @@ public class ApplicationRunnerImpl implements ApplicationRunner {
             Class<?> clazz = bean.getClass();
             Order order = AnnotationUtils.findAnnotation(clazz, Order.class);
             EventVo.EventMessageReceiveNormalVo eventVo = new EventVo.EventMessageReceiveNormalVo();
+            eventVo.setOrder(0);
             if (order != null) {
                 eventVo.setOrder(order.value());
-            } else {
-                eventVo.setOrder(0);
             }
             eventVo.setPluginName(entry.getKey());
             eventVo.setBean(bean);
             list.add(eventVo);
-            //按照order进行排序，从大到小
-            Collections.sort(list, Comparator.comparingInt(EventVo.EventMessageReceiveNormalVo::getOrder));
         }
+        Collections.sort(list, Comparator.comparingInt(EventVo.EventMessageReceiveNormalVo::getOrder));
         return list;
     }
 
@@ -89,17 +87,15 @@ public class ApplicationRunnerImpl implements ApplicationRunner {
             Class<?> clazz = bean.getClass();
             Order order = AnnotationUtils.findAnnotation(clazz, Order.class);
             EventVo.EventMessageReceiveInstructionVo eventVo = new EventVo.EventMessageReceiveInstructionVo();
+            eventVo.setOrder(0);
             if (order != null) {
                 eventVo.setOrder(order.value());
-            } else {
-                eventVo.setOrder(0);
             }
             eventVo.setPluginName(entry.getKey());
             eventVo.setBean(bean);
             list.add(eventVo);
-            //按照order进行排序，从大到小
-            Collections.sort(list, Comparator.comparingInt(EventVo.EventMessageReceiveInstructionVo::getOrder));
         }
+        Collections.sort(list, Comparator.comparingInt(EventVo.EventMessageReceiveInstructionVo::getOrder));
         return list;
     }
 
