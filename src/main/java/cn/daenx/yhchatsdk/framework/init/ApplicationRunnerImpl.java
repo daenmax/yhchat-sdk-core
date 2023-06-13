@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.*;
 
 /**
- * 项目启动后，初始化
+ * 插件加载
  */
 @Component
 @Slf4j

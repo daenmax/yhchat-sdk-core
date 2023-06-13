@@ -10,7 +10,7 @@ import java.util.concurrent.ExecutorService;
  */
 @Slf4j
 public class GlobalExecutorSubmit {
-    public static void sub(EventMsgVo eventMsgVo) {
+    public static void submit(EventMsgVo eventMsgVo) {
         ExecutorService executorService = GlobalThreadPool.getExecutorService();
         executorService.execute(new GlobalEventHandle(eventMsgVo));
     }

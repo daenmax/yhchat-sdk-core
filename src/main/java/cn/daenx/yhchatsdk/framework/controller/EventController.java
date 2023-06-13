@@ -24,10 +24,8 @@ public class EventController {
      */
     @PostMapping("/msg")
     public Result msg(@RequestBody EventMsgVo eventMsgVo) {
-        String clientIP = ServletUtils.getClientIP();
-        String eventType = eventMsgVo.getHeader().getEventType();
-        log.info("接收到来自IP[{}]的请求消息：{}，原始消息为{}", clientIP, eventType, eventMsgVo.toString());
-        GlobalExecutorSubmit.sub(eventMsgVo);
+        log.info("接收到来自IP[{}]的请求消息：{}，原始消息为{}", ServletUtils.getClientIP(), eventMsgVo.getHeader().getEventType(), eventMsgVo.toString());
+        GlobalExecutorSubmit.submit(eventMsgVo);
         return Result.ok();
     }
 
@@ -50,7 +48,7 @@ public class EventController {
         EventMsgVo.Header header = new EventMsgVo.Header();
         header.setEventType(EventType.MESSAGE_RECEIVE_NORMAL.getCode());
         eventMsgVo.setHeader(header);
-        GlobalExecutorSubmit.sub(eventMsgVo);
+        GlobalExecutorSubmit.submit(eventMsgVo);
         return Result.ok();
     }
 
