@@ -120,11 +120,6 @@ public class EventMsgVo {
         private String recvType;
 
         /**
-         * 按钮上报事件来源类型为group时，群用户ID
-         */
-        private String senderId;
-
-        /**
          * 按钮上报事件：上报内容
          */
         private String value;

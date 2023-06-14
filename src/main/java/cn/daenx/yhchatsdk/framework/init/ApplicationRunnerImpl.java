@@ -23,6 +23,7 @@ import java.util.*;
 @Slf4j
 public class ApplicationRunnerImpl implements ApplicationRunner {
 
+
     @Override
     public void run(ApplicationArguments args) {
         log.info("【core】加载插件开始...");
@@ -35,60 +36,61 @@ public class ApplicationRunnerImpl implements ApplicationRunner {
         List<PluginManagerVo.EventMessageReceiveNormalVo> dataList1 = globalData.getEventMessageReceiveNormalVos();
         dataList1.addAll(loadList1);
         allNum = allNum + loadList1.size();
-        log.info("【core】加载【普通消息事件插件】插件完成，共{}个", loadList1.size());
+        log.info("【core】加载[普通消息事件]插件完成，共{}个", loadList1.size());
 
         //指令消息事件插件
         List<PluginManagerVo.EventMessageReceiveInstructionVo> loadList2 = loadEventMessageReceiveInstruction(applicationContext);
         List<PluginManagerVo.EventMessageReceiveInstructionVo> dataList2 = globalData.getEventMessageReceiveInstructionVos();
         dataList2.addAll(loadList2);
         allNum = allNum + loadList2.size();
-        log.info("【core】加载【指令消息事件插件】插件完成，共{}个", loadList2.size());
+        log.info("【core】加载[指令消息事件]插件完成，共{}个", loadList2.size());
 
         //关注机器人事件
         List<PluginManagerVo.EventBotFollwedVo> loadList3 = loadEventBotFollwed(applicationContext);
         List<PluginManagerVo.EventBotFollwedVo> dataList3 = globalData.getEventBotFollwedVos();
         dataList3.addAll(loadList3);
         allNum = allNum + loadList3.size();
-        log.info("【core】加载【关注机器人事件】插件完成，共{}个", loadList3.size());
+        log.info("【core】加载[关注机器人事件]插件完成，共{}个", loadList3.size());
 
         //取消关注机器人事件
         List<PluginManagerVo.EventBotUnfollwedVo> loadList4 = loadEventBotUnfollwed(applicationContext);
         List<PluginManagerVo.EventBotUnfollwedVo> dataList4 = globalData.getEventBotUnfollwedVos();
         dataList4.addAll(loadList4);
         allNum = allNum + loadList4.size();
-        log.info("【core】加载【取消关注机器人事件】插件完成，共{}个", loadList4.size());
+        log.info("【core】加载[取消关注机器人事件]插件完成，共{}个", loadList4.size());
 
         //消息中按钮点击事件
         List<PluginManagerVo.EventButtonReportInlineVo> loadList5 = loadEventButtonReportInline(applicationContext);
         List<PluginManagerVo.EventButtonReportInlineVo> dataList5 = globalData.getEventButtonReportInlineVos();
         dataList5.addAll(loadList5);
         allNum = allNum + loadList5.size();
-        log.info("【core】加载【消息中按钮点击事件】插件完成，共{}个", loadList5.size());
+        log.info("【core】加载[消息中按钮点击事件]插件完成，共{}个", loadList5.size());
 
         //加入群事件
         List<PluginManagerVo.EventGroupJoinVo> loadList6 = loadEventGroupJoin(applicationContext);
         List<PluginManagerVo.EventGroupJoinVo> dataList6 = globalData.getEventGroupJoinVos();
         dataList6.addAll(loadList6);
         allNum = allNum + loadList6.size();
-        log.info("【core】加载【加入群事件】插件完成，共{}个", loadList6.size());
+        log.info("【core】加载[加入群事件]插件完成，共{}个", loadList6.size());
 
         //退出群事件
         List<PluginManagerVo.EventGroupLeaveVo> loadList7 = loadEventGroupLeave(applicationContext);
         List<PluginManagerVo.EventGroupLeaveVo> dataList7 = globalData.getEventGroupLeaveVos();
         dataList7.addAll(loadList7);
         allNum = allNum + loadList7.size();
-        log.info("【core】加载【退出群事件】插件完成，共{}个", loadList7.size());
+        log.info("【core】加载[退出群事件]插件完成，共{}个", loadList7.size());
 
         //机器人设置事件
         List<PluginManagerVo.EventBotSettingVo> loadList8 = loadEventBotSetting(applicationContext);
         List<PluginManagerVo.EventBotSettingVo> dataList8 = globalData.getEventBotSettingVos();
         dataList8.addAll(loadList8);
         allNum = allNum + loadList8.size();
-        log.info("【core】加载【机器人设置事件】插件完成，共{}个", loadList8.size());
+        log.info("【core】加载[机器人设置事件]插件完成，共{}个", loadList8.size());
 
         log.info("【core】加载插件结束，共{}个", allNum);
+        log.info("【core】核心启动完成，欢迎使用");
 
-        log.info("【core】\n" +
+        log.info("\n" +
                 " __     ___      _____ _           _       _____                  ____           _____                   __  __            \n" +
                 " \\ \\   / / |    / ____| |         | |     / ____|                |  _ \\         |  __ \\                 |  \\/  |           \n" +
                 "  \\ \\_/ /| |__ | |    | |__   __ _| |_   | |     ___  _ __ ___   | |_) |_   _   | |  | | __ _  ___ _ __ | \\  / | __ ___  __\n" +
