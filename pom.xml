@@ -17,40 +17,6 @@
     </description>
     <url>https://gitee.com/daenmax/yhchat-sdk-core</url>
 
-    <licenses>
-        <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        </license>
-    </licenses>
-
-    <scm>
-        <connection>https://gitee.com/daenmax/yhchat-sdk-core.git</connection>
-        <url>https://gitee.com/daenmax/yhchat-sdk-core</url>
-    </scm>
-
-    <developers>
-        <developer>
-            <name>DaenMax</name>
-            <email>wangjingen163@163.com</email>
-            <roles>
-                <role>Developer</role>
-            </roles>
-            <timezone>+8</timezone>
-        </developer>
-    </developers>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
-
     <properties>
         <java.version>1.8</java.version>
         <spring-boot.version>2.7.12</spring-boot.version>
@@ -92,6 +58,46 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
+
+    <!--开源协议...-->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>https://gitee.com/daenmax/yhchat-sdk-core.git</connection>
+        <developerConnection>git@gitee.com:daenmax/yhchat-sdk-core.git</developerConnection>
+        <url>https://gitee.com/daenmax/yhchat-sdk-core</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>DaenMax</id>
+            <name>DaenMax</name>
+            <email>1330166565@qq.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
 
     <build>
         <pluginManagement>
@@ -154,6 +160,25 @@
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
                 </configuration>
+            </plugin>
+
+<!--            jdk1.8中必须增加Xdoclint:none，因为1.8 javadoc要求必须严格格式检查，否则会报错-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
