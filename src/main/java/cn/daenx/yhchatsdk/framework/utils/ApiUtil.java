@@ -9,6 +9,11 @@ import cn.hutool.json.JSONUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+/**
+ * API工具类
+ *
+ * @author DaenMax
+ */
 @Component
 public class ApiUtil {
     private static String token;

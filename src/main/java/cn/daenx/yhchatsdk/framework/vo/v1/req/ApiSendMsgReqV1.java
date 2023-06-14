@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 请求体
+ * 发送消息请求体
+ *
+ * @author DaenMax
  */
 @Data
 public class ApiSendMsgReqV1 {

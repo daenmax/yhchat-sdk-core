@@ -7,6 +7,8 @@ import java.util.concurrent.ExecutorService;
 
 /**
  * 事件处理线程投递器
+ *
+ * @author DaenMax
  */
 @Slf4j
 public class GlobalExecutorSubmit {

@@ -3,7 +3,9 @@ package cn.daenx.yhchatsdk.framework.vo.v1.ret;
 import lombok.Data;
 
 /**
- * 接口响应体
+ * 发送消息响应体
+ *
+ * @author DaenMax
  */
 @Data
 public class ApiSendMsgRetV1 {

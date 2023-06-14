@@ -2,6 +2,8 @@ package cn.daenx.yhchatsdk.common.constant;
 
 /**
  * 消息类型
+ *
+ * @author DaenMax
  */
 public class ContentTypeConstant {
     public static final String TEXT = "text";

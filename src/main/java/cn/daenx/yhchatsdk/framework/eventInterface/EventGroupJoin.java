@@ -4,6 +4,8 @@ import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 
 /**
  * 加入群事件
+ *
+ * @author DaenMax
  */
 public interface EventGroupJoin {
     /**

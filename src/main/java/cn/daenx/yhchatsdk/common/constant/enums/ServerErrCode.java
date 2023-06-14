@@ -7,6 +7,8 @@ import java.util.Map;
 
 /**
  * 服务端错误代码
+ *
+ * @author DaenMax
  */
 public enum ServerErrCode {
 

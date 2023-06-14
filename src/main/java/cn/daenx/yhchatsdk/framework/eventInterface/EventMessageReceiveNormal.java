@@ -4,6 +4,8 @@ import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 
 /**
  * 普通消息事件
+ *
+ * @author DaenMax
  */
 public interface EventMessageReceiveNormal {
     /**

@@ -5,7 +5,9 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * 接口响应体
+ * 批量发送消息响应体
+ *
+ * @author DaenMax
  */
 @Data
 public class ApiSendMsgBatchRetV1 {

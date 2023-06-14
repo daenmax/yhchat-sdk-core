@@ -4,6 +4,8 @@ import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 
 /**
  * 取消关注机器人事件
+ *
+ * @author DaenMax
  */
 public interface EventBotUnfollwed {
     /**

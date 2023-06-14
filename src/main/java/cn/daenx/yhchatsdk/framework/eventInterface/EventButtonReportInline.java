@@ -4,6 +4,8 @@ import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 
 /**
  * 消息中按钮点击事件
+ *
+ * @author DaenMax
  */
 public interface EventButtonReportInline {
     /**

@@ -2,13 +2,15 @@ package cn.daenx.yhchatsdk.framework.core;
 
 import cn.daenx.yhchatsdk.common.constant.enums.EventType;
 import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
-import cn.daenx.yhchatsdk.framework.vo.EventVo;
+import cn.daenx.yhchatsdk.framework.vo.PluginManagerVo;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
 /**
  * 事件处理分发器
+ *
+ * @author DaenMax
  */
 @Slf4j
 public class GlobalEventHandle implements Runnable {
@@ -48,7 +50,7 @@ public class GlobalEventHandle implements Runnable {
         } else if (EventType.BOT_SETTING.getCode().equals(eventType)) {
             eventBotSetting(eventMsgVo);
         } else {
-            log.error("事件投递失败，未知的消息类型：{}", eventType);
+            log.error("【core】事件投递失败，未知的消息类型：{}", eventType);
         }
     }
 
@@ -58,8 +60,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventMessageReceiveNormal(EventMsgVo eventMsgVo) {
-        List<EventVo.EventMessageReceiveNormalVo> list = getGlobalPluginHandel().getEventMessageReceiveNormalVos();
-        for (EventVo.EventMessageReceiveNormalVo vo : list) {
+        List<PluginManagerVo.EventMessageReceiveNormalVo> list = getGlobalPluginHandel().getEventMessageReceiveNormalVos();
+        for (PluginManagerVo.EventMessageReceiveNormalVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -68,7 +70,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
 
         }
@@ -80,8 +82,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventMessageReceiveInstruction(EventMsgVo eventMsgVo) {
-        List<EventVo.EventMessageReceiveInstructionVo> list = getGlobalPluginHandel().getEventMessageReceiveInstructionVos();
-        for (EventVo.EventMessageReceiveInstructionVo vo : list) {
+        List<PluginManagerVo.EventMessageReceiveInstructionVo> list = getGlobalPluginHandel().getEventMessageReceiveInstructionVos();
+        for (PluginManagerVo.EventMessageReceiveInstructionVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -90,7 +92,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
         }
     }
@@ -101,8 +103,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventBotFollwed(EventMsgVo eventMsgVo) {
-        List<EventVo.EventBotFollwedVo> list = getGlobalPluginHandel().getEventBotFollwedVos();
-        for (EventVo.EventBotFollwedVo vo : list) {
+        List<PluginManagerVo.EventBotFollwedVo> list = getGlobalPluginHandel().getEventBotFollwedVos();
+        for (PluginManagerVo.EventBotFollwedVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -111,7 +113,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
         }
     }
@@ -122,8 +124,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventBotUnfollwed(EventMsgVo eventMsgVo) {
-        List<EventVo.EventBotUnfollwedVo> list = getGlobalPluginHandel().getEventBotUnfollwedVos();
-        for (EventVo.EventBotUnfollwedVo vo : list) {
+        List<PluginManagerVo.EventBotUnfollwedVo> list = getGlobalPluginHandel().getEventBotUnfollwedVos();
+        for (PluginManagerVo.EventBotUnfollwedVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -132,7 +134,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
         }
     }
@@ -143,8 +145,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventButtonReportInline(EventMsgVo eventMsgVo) {
-        List<EventVo.EventButtonReportInlineVo> list = getGlobalPluginHandel().getEventButtonReportInlineVos();
-        for (EventVo.EventButtonReportInlineVo vo : list) {
+        List<PluginManagerVo.EventButtonReportInlineVo> list = getGlobalPluginHandel().getEventButtonReportInlineVos();
+        for (PluginManagerVo.EventButtonReportInlineVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -153,7 +155,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
         }
     }
@@ -164,8 +166,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventGroupJoin(EventMsgVo eventMsgVo) {
-        List<EventVo.EventGroupJoinVo> list = getGlobalPluginHandel().getEventGroupJoinVos();
-        for (EventVo.EventGroupJoinVo vo : list) {
+        List<PluginManagerVo.EventGroupJoinVo> list = getGlobalPluginHandel().getEventGroupJoinVos();
+        for (PluginManagerVo.EventGroupJoinVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -174,7 +176,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
         }
     }
@@ -185,8 +187,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventGroupLeave(EventMsgVo eventMsgVo) {
-        List<EventVo.EventGroupLeaveVo> list = getGlobalPluginHandel().getEventGroupLeaveVos();
-        for (EventVo.EventGroupLeaveVo vo : list) {
+        List<PluginManagerVo.EventGroupLeaveVo> list = getGlobalPluginHandel().getEventGroupLeaveVos();
+        for (PluginManagerVo.EventGroupLeaveVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -195,7 +197,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
         }
     }
@@ -206,8 +208,8 @@ public class GlobalEventHandle implements Runnable {
      * @param eventMsgVo
      */
     public static void eventBotSetting(EventMsgVo eventMsgVo) {
-        List<EventVo.EventBotSettingVo> list = getGlobalPluginHandel().getEventBotSettingVos();
-        for (EventVo.EventBotSettingVo vo : list) {
+        List<PluginManagerVo.EventBotSettingVo> list = getGlobalPluginHandel().getEventBotSettingVos();
+        for (PluginManagerVo.EventBotSettingVo vo : list) {
             try {
                 Integer integer = vo.getBean().handle(eventMsgVo);
                 // 如果返回值是-1，那么将不再继续执行
@@ -216,7 +218,7 @@ public class GlobalEventHandle implements Runnable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
-                log.error("插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
+                log.error("【core】插件[{}]发送异常：{}", vo.getPluginName(), e.getMessage());
             }
         }
     }

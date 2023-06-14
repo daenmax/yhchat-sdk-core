@@ -4,6 +4,8 @@ import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 
 /**
  * 机器人设置事件
+ *
+ * @author DaenMax
  */
 public interface EventBotSetting {
     /**

@@ -4,6 +4,8 @@ import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 
 /**
  * 退出群事件
+ *
+ * @author DaenMax
  */
 public interface EventGroupLeave {
     /**

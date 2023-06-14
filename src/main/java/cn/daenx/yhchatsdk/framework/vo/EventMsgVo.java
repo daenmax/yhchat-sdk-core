@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 /**
  * 消息事件
+ *
+ * @author DaenMax
  */
 @Data
 public class EventMsgVo {

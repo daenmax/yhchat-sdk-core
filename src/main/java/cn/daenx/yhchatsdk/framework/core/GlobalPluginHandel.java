@@ -1,12 +1,14 @@
 package cn.daenx.yhchatsdk.framework.core;
 
-import cn.daenx.yhchatsdk.framework.vo.EventVo;
+import cn.daenx.yhchatsdk.framework.vo.PluginManagerVo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 插件管理器
+ *
+ * @author DaenMax
  */
 public class GlobalPluginHandel {
 
@@ -22,64 +24,64 @@ public class GlobalPluginHandel {
     /**
      * 普通消息事件插件
      */
-    private List<EventVo.EventMessageReceiveNormalVo> eventMessageReceiveNormalVos = new ArrayList<>();
-    public List<EventVo.EventMessageReceiveNormalVo> getEventMessageReceiveNormalVos() {
+    private List<PluginManagerVo.EventMessageReceiveNormalVo> eventMessageReceiveNormalVos = new ArrayList<>();
+    public List<PluginManagerVo.EventMessageReceiveNormalVo> getEventMessageReceiveNormalVos() {
         return eventMessageReceiveNormalVos;
     }
 
     /**
      * 指令消息事件插件
      */
-    private List<EventVo.EventMessageReceiveInstructionVo> EventMessageReceiveInstructionVos = new ArrayList<>();
-    public List<EventVo.EventMessageReceiveInstructionVo> getEventMessageReceiveInstructionVos() {
+    private List<PluginManagerVo.EventMessageReceiveInstructionVo> EventMessageReceiveInstructionVos = new ArrayList<>();
+    public List<PluginManagerVo.EventMessageReceiveInstructionVo> getEventMessageReceiveInstructionVos() {
         return EventMessageReceiveInstructionVos;
     }
 
     /**
      * 关注机器人事件
      */
-    private List<EventVo.EventBotFollwedVo> EventEventBotFollwedVos = new ArrayList<>();
-    public List<EventVo.EventBotFollwedVo> getEventBotFollwedVos() {
+    private List<PluginManagerVo.EventBotFollwedVo> EventEventBotFollwedVos = new ArrayList<>();
+    public List<PluginManagerVo.EventBotFollwedVo> getEventBotFollwedVos() {
         return EventEventBotFollwedVos;
     }
 
     /**
      * 指令消息事件插件
      */
-    private List<EventVo.EventBotUnfollwedVo> EventBotUnfollwedVos = new ArrayList<>();
-    public List<EventVo.EventBotUnfollwedVo> getEventBotUnfollwedVos() {
+    private List<PluginManagerVo.EventBotUnfollwedVo> EventBotUnfollwedVos = new ArrayList<>();
+    public List<PluginManagerVo.EventBotUnfollwedVo> getEventBotUnfollwedVos() {
         return EventBotUnfollwedVos;
     }
 
     /**
      * 指令消息事件插件
      */
-    private List<EventVo.EventButtonReportInlineVo> EventButtonReportInlineVos = new ArrayList<>();
-    public List<EventVo.EventButtonReportInlineVo> getEventButtonReportInlineVos() {
+    private List<PluginManagerVo.EventButtonReportInlineVo> EventButtonReportInlineVos = new ArrayList<>();
+    public List<PluginManagerVo.EventButtonReportInlineVo> getEventButtonReportInlineVos() {
         return EventButtonReportInlineVos;
     }
 
     /**
      * 指令消息事件插件
      */
-    private List<EventVo.EventGroupJoinVo> EventGroupJoinVos = new ArrayList<>();
-    public List<EventVo.EventGroupJoinVo> getEventGroupJoinVos() {
+    private List<PluginManagerVo.EventGroupJoinVo> EventGroupJoinVos = new ArrayList<>();
+    public List<PluginManagerVo.EventGroupJoinVo> getEventGroupJoinVos() {
         return EventGroupJoinVos;
     }
 
     /**
      * 指令消息事件插件
      */
-    private List<EventVo.EventGroupLeaveVo> EventGroupLeaveVos = new ArrayList<>();
-    public List<EventVo.EventGroupLeaveVo> getEventGroupLeaveVos() {
+    private List<PluginManagerVo.EventGroupLeaveVo> EventGroupLeaveVos = new ArrayList<>();
+    public List<PluginManagerVo.EventGroupLeaveVo> getEventGroupLeaveVos() {
         return EventGroupLeaveVos;
     }
 
     /**
      * 指令消息事件插件
      */
-    private List<EventVo.EventBotSettingVo> EventBotSettingVos = new ArrayList<>();
-    public List<EventVo.EventBotSettingVo> getEventBotSettingVos() {
+    private List<PluginManagerVo.EventBotSettingVo> EventBotSettingVos = new ArrayList<>();
+    public List<PluginManagerVo.EventBotSettingVo> getEventBotSettingVos() {
         return EventBotSettingVos;
     }
 }

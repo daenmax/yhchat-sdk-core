@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 /**
  * 统一响应结果
+ *
+ * @author DaenMax
  */
 @Data
 public class Result implements Serializable {

@@ -1,7 +1,6 @@
 package cn.daenx.yhchatsdk.framework.controller;
 
 
-import cn.daenx.yhchatsdk.common.constant.enums.EventType;
 import cn.daenx.yhchatsdk.common.utils.ServletUtils;
 import cn.daenx.yhchatsdk.common.vo.Result;
 import cn.daenx.yhchatsdk.framework.core.GlobalExecutorSubmit;
@@ -11,7 +10,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 云湖事件
+ * 云湖事件入口
+ *
+ * @author DaenMax
  */
 @RestController
 @RequestMapping("/event")
@@ -28,7 +29,7 @@ public class EventController {
     @PostMapping("/msg")
     public Result msg(@RequestBody EventMsgVo eventMsgVo) {
         if (printLog) {
-            log.info("接收到来自IP[{}]的请求消息：{}，原始消息为{}", ServletUtils.getClientIP(), eventMsgVo.getHeader().getEventType(), eventMsgVo.toString());
+            log.info("【core】接收到来自IP[{}]的请求消息：{}，原始消息为{}", ServletUtils.getClientIP(), eventMsgVo.getHeader().getEventType(), eventMsgVo.toString());
         }
         GlobalExecutorSubmit.submit(eventMsgVo);
         return Result.ok();

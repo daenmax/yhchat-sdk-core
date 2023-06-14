@@ -7,6 +7,8 @@ import java.util.Map;
 
 /**
  * 事件
+ *
+ * @author DaenMax
  */
 public enum EventType {
 

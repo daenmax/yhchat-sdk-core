@@ -2,6 +2,8 @@ package cn.daenx.yhchatsdk.common.constant;
 
 /**
  * 按钮类型
+ *
+ * @author DaenMax
  */
 public class ButtonActionTypeConstant {
     /**
