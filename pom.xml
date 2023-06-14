@@ -5,19 +5,58 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.6</version>
+        <version>2.7.12</version>
         <relativePath/>
     </parent>
     <groupId>cn.daenx</groupId>
     <artifactId>yhchat-sdk-core</artifactId>
     <version>1.0.0</version>
     <name>yhchat-sdk-core</name>
-    <description>yhchat-sdk-core</description>
+    <description>
+        yhchat-sdk-core是云湖社交的Java版本的SDK核心服务，通过此Core可以快速构建您的云湖机器人，能让您以非常便捷的方式和云湖服务进行交互。
+    </description>
+    <url>https://gitee.com/daenmax/yhchat-sdk-core</url>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>https://gitee.com/daenmax/yhchat-sdk-core.git</connection>
+        <url>https://gitee.com/daenmax/yhchat-sdk-core</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>DaenMax</name>
+            <email>wangjingen163@163.com</email>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
-        <java.version>17</java.version>
-        <spring-boot.version>3.0.6</spring-boot.version>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.7.12</spring-boot.version>
         <hutool.version>5.8.19</hutool.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -55,10 +94,28 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.17</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
             <!--生成源码jar包-->
             <plugin>
@@ -73,7 +130,33 @@
                     </execution>
                 </executions>
             </plugin>
+            <!-- GPG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <goals>deploy</goals>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
 
 </project>
