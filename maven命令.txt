@@ -1,0 +1,5 @@
+安装到本地仓库
+maven install
+
+打包并上传到maven仓库
+mvn clean install deploy -P release
