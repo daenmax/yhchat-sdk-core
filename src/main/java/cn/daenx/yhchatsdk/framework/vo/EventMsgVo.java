@@ -72,7 +72,17 @@ public class EventMsgVo {
         private String groupName;
 
         /**
-         * 群头像
+         * 用户ID
+         */
+        private String userId;
+
+        /**
+         * 用户昵称
+         */
+        private String nickname;
+
+        /**
+         * 头像
          */
         private String avatarUrl;
 
