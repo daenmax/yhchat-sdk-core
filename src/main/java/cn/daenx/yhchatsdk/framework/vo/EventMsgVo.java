@@ -107,6 +107,26 @@ public class EventMsgVo {
          */
         private Message message;
 
+        /**
+         * 按钮上报事件来源ID
+         */
+        private String recvId;
+
+        /**
+         * 按钮上报事件来源类型：group、user
+         */
+        private String recvType;
+
+        /**
+         * 按钮上报事件来源类型为group时，群用户ID
+         */
+        private String senderId;
+
+        /**
+         * 按钮上报事件：上报内容
+         */
+        private String value;
+
         @Data
         public static class Sender {
 
