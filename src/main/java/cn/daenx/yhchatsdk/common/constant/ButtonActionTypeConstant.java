@@ -12,12 +12,12 @@ public class ButtonActionTypeConstant {
     /**
      * 复制
      */
-    public static final Integer COPY = 1;
+    public static final Integer COPY = 2;
 
     /**
      * 点击汇报
      */
-    public static final Integer REPORT = 1;
+    public static final Integer REPORT = 3;
 
 
 }

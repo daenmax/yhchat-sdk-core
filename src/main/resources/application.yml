@@ -5,4 +5,6 @@ server:
     context-path: /yhchat
 
 yhchat:
+  # 是否打印原始消息日志
+  printLog: true
   token: "default"

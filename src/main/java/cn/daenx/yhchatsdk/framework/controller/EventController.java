@@ -7,6 +7,7 @@ import cn.daenx.yhchatsdk.common.vo.Result;
 import cn.daenx.yhchatsdk.framework.core.GlobalExecutorSubmit;
 import cn.daenx.yhchatsdk.framework.vo.EventMsgVo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/event")
 @Slf4j
 public class EventController {
+    @Value("${yhchat.printLog}")
+    private Boolean printLog;
 
     /**
      * 接收云湖事件推送
@@ -24,7 +27,9 @@ public class EventController {
      */
     @PostMapping("/msg")
     public Result msg(@RequestBody EventMsgVo eventMsgVo) {
-        log.info("接收到来自IP[{}]的请求消息：{}，原始消息为{}", ServletUtils.getClientIP(), eventMsgVo.getHeader().getEventType(), eventMsgVo.toString());
+        if (printLog) {
+            log.info("接收到来自IP[{}]的请求消息：{}，原始消息为{}", ServletUtils.getClientIP(), eventMsgVo.getHeader().getEventType(), eventMsgVo.toString());
+        }
         GlobalExecutorSubmit.submit(eventMsgVo);
         return Result.ok();
     }
