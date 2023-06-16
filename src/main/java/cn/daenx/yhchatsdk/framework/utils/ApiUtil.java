@@ -1,7 +1,9 @@
 package cn.daenx.yhchatsdk.framework.utils;
 
+import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiEditMsgReqV1;
 import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgBatchReqV1;
 import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgReqV1;
+import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiEditMsgRetV1;
 import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgBatchRetV1;
 import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgRetV1;
 import cn.hutool.http.HttpRequest;
@@ -54,5 +56,20 @@ public class ApiUtil {
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
         ApiSendMsgBatchRetV1 apiSendMsgBatchRetV1 = JSONUtil.toBean(body, ApiSendMsgBatchRetV1.class);
         return apiSendMsgBatchRetV1;
+    }
+
+    /**
+     * 编辑消息
+     * 参数中的recvId、recvType需要和原消息保持一致，否则无法编辑
+     *
+     * @param apiEditMsgReqV1
+     * @return
+     */
+    public static ApiEditMsgRetV1 editMsg(ApiEditMsgReqV1 apiEditMsgReqV1) {
+        String urlPost = url + "/edit?token=" + token;
+        String content = JSONUtil.toJsonStr(apiEditMsgReqV1);
+        String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
+        ApiEditMsgRetV1 apiEditMsgRetV1 = JSONUtil.toBean(body, ApiEditMsgRetV1.class);
+        return apiEditMsgRetV1;
     }
 }

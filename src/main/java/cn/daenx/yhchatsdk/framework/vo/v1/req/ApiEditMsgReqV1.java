@@ -7,18 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 批量发送消息请求体
+ * 编辑消息请求体
  *
  * @author DaenMax
  */
 @Data
-public class ApiSendMsgBatchReqV1 {
+public class ApiEditMsgReqV1 {
     /**
-     * 接收消息对象ID列表
+     * 要编辑的消息ID
+     */
+    private String msgId;
+    /**
+     * 接收消息对象ID
      * 用户: userId
      * 群: groupId
      */
-    private List<String> recvIds;
+    private String recvId;
     /**
      * 接收对象类型
      * 用户: user
@@ -91,60 +95,70 @@ public class ApiSendMsgBatchReqV1 {
     //快捷构造方法
 
     /**
+     * 设置要编辑的消息ID
+     * 首先调用该方法
+     *
+     * @param msgId 要编辑的消息ID
+     * @return
+     */
+    public ApiEditMsgReqV1 setMsgId(String msgId) {
+        ApiEditMsgReqV1 reqV1 = new ApiEditMsgReqV1();
+        reqV1.msgId = msgId;
+        return reqV1;
+    }
+
+    /**
      * 文本消息
      *
      * @param recvType RecvTypeConstant.
-     * @param recvIds  当为USER时，填用户ID，当为GROUP时，填群ID
+     * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
      * @param text     消息内容
      * @return
      */
-    public ApiSendMsgBatchReqV1 Text(String recvType, List<String> recvIds, String text) {
-        ApiSendMsgBatchReqV1 reqV1 = new ApiSendMsgBatchReqV1();
-        reqV1.recvIds = recvIds;
-        reqV1.recvType = recvType;
-        reqV1.contentType = ContentTypeConstant.TEXT;
+    public ApiEditMsgReqV1 Text(String recvType, String recvId, String text) {
+        this.recvId = recvId;
+        this.recvType = recvType;
+        this.contentType = ContentTypeConstant.TEXT;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
         contentV1.text = text;
-        reqV1.content = contentV1;
-        return reqV1;
+        this.content = contentV1;
+        return this;
     }
 
     /**
      * 图片消息
      *
      * @param recvType RecvTypeConstant.
-     * @param recvIds  当为USER时，填用户ID，当为GROUP时，填群ID
+     * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
      * @param imageUrl 图片网络直链
      * @return
      */
-    public ApiSendMsgBatchReqV1 Image(String recvType, List<String> recvIds, String imageUrl) {
-        ApiSendMsgBatchReqV1 reqV1 = new ApiSendMsgBatchReqV1();
-        reqV1.recvIds = recvIds;
-        reqV1.recvType = recvType;
-        reqV1.contentType = ContentTypeConstant.IMAGE;
+    public ApiEditMsgReqV1 Image(String recvType, String recvId, String imageUrl) {
+        this.recvId = recvId;
+        this.recvType = recvType;
+        this.contentType = ContentTypeConstant.IMAGE;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
         contentV1.imageUrl = imageUrl;
-        reqV1.content = contentV1;
-        return reqV1;
+        this.content = contentV1;
+        return this;
     }
 
     /**
      * Markdown消息
      *
      * @param recvType RecvTypeConstant.
-     * @param recvIds  当为USER时，填用户ID，当为GROUP时，填群ID
+     * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
      * @param text     md消息内容
      * @return
      */
-    public ApiSendMsgBatchReqV1 Markdown(String recvType, List<String> recvIds, String text) {
-        ApiSendMsgBatchReqV1 reqV1 = new ApiSendMsgBatchReqV1();
-        reqV1.recvIds = recvIds;
-        reqV1.recvType = recvType;
-        reqV1.contentType = ContentTypeConstant.MARKDOWN;
+    public ApiEditMsgReqV1 Markdown(String recvType, String recvId, String text) {
+        this.recvId = recvId;
+        this.recvType = recvType;
+        this.contentType = ContentTypeConstant.MARKDOWN;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
         contentV1.text = text;
-        reqV1.content = contentV1;
-        return reqV1;
+        this.content = contentV1;
+        return this;
     }
 
     /**
@@ -152,21 +166,20 @@ public class ApiSendMsgBatchReqV1 {
      * 该方法只能调用一次，并且与其他类型方法互斥
      *
      * @param recvType RecvTypeConstant.
-     * @param recvIds  当为USER时，填用户ID，当为GROUP时，填群ID
+     * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
      * @param fileName 文件名
      * @param fileUrl  文件网络直链
      * @return
      */
-    public ApiSendMsgBatchReqV1 File(String recvType, List<String> recvIds, String fileName, String fileUrl) {
-        ApiSendMsgBatchReqV1 reqV1 = new ApiSendMsgBatchReqV1();
-        reqV1.recvIds = recvIds;
-        reqV1.recvType = recvType;
-        reqV1.contentType = ContentTypeConstant.FILE;
+    public ApiEditMsgReqV1 File(String recvType, String recvId, String fileName, String fileUrl) {
+        this.recvId = recvId;
+        this.recvType = recvType;
+        this.contentType = ContentTypeConstant.FILE;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
         contentV1.fileName = fileName;
         contentV1.fileUrl = fileUrl;
-        reqV1.content = contentV1;
-        return reqV1;
+        this.content = contentV1;
+        return this;
     }
 
     /**
@@ -179,7 +192,7 @@ public class ApiSendMsgBatchReqV1 {
      * @param value      当actionType为COPY、REPORT时使用，其他时候传NULL
      * @return
      */
-    public ApiSendMsgBatchReqV1 addButton(String text, Integer actionType, String url, String value) {
+    public ApiEditMsgReqV1 addButton(String text, Integer actionType, String url, String value) {
         ApiSendButtonV1 buttonV1 = new ApiSendButtonV1();
         buttonV1.setText(text);
         buttonV1.setActionType(actionType);

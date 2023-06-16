@@ -119,9 +119,9 @@ public class ApiSendMsgReqV1 {
      */
     public ApiSendMsgReqV1 Image(String recvType, String recvId, String imageUrl) {
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1();
-        this.recvId = recvId;
-        this.recvType = recvType;
-        this.contentType = ContentTypeConstant.IMAGE;
+        reqV1.recvId = recvId;
+        reqV1.recvType = recvType;
+        reqV1.contentType = ContentTypeConstant.IMAGE;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
         contentV1.imageUrl = imageUrl;
         reqV1.content = contentV1;
@@ -138,9 +138,9 @@ public class ApiSendMsgReqV1 {
      */
     public ApiSendMsgReqV1 Markdown(String recvType, String recvId, String text) {
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1();
-        this.recvId = recvId;
-        this.recvType = recvType;
-        this.contentType = ContentTypeConstant.MARKDOWN;
+        reqV1.recvId = recvId;
+        reqV1.recvType = recvType;
+        reqV1.contentType = ContentTypeConstant.MARKDOWN;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
         contentV1.text = text;
         reqV1.content = contentV1;
@@ -159,9 +159,9 @@ public class ApiSendMsgReqV1 {
      */
     public ApiSendMsgReqV1 File(String recvType, String recvId, String fileName, String fileUrl) {
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1();
-        this.recvId = recvId;
-        this.recvType = recvType;
-        this.contentType = ContentTypeConstant.FILE;
+        reqV1.recvId = recvId;
+        reqV1.recvType = recvType;
+        reqV1.contentType = ContentTypeConstant.FILE;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
         contentV1.fileName = fileName;
         contentV1.fileUrl = fileUrl;
