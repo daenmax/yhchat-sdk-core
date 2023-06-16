@@ -208,13 +208,27 @@ public class EventMsgVo {
 
             /**
              * 指令ID，可用来区分用户发送的指令
+             * 已废弃，将在未来删除，请使用：commandId
              */
+            @Deprecated()
             private Integer instructionId;
 
             /**
              * 指令名称，可用来区分用户发送的指令
+             * 已废弃，将在未来删除，请使用：commandName
              */
+            @Deprecated
             private String instructionName;
+
+            /**
+             * 指令ID，可用来区分用户发送的指令
+             */
+            private Integer commandId;
+
+            /**
+             * 指令名称，可用来区分用户发送的指令
+             */
+            private String commandName;
 
             /**
              * 消息正文
