@@ -10,7 +10,7 @@
     </parent>
     <groupId>cn.daenx</groupId>
     <artifactId>yhchat-sdk-core</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>yhchat-sdk-core</name>
     <description>
         yhchat-sdk-core是云湖社交的Java版本的SDK核心服务，通过此Core可以快速构建您的云湖机器人，能让您以非常便捷的方式和云湖服务进行交互。
