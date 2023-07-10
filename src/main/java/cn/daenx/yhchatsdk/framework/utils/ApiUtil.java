@@ -1,11 +1,7 @@
 package cn.daenx.yhchatsdk.framework.utils;
 
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiEditMsgReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgBatchReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.req.ApiSendMsgReqV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiEditMsgRetV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgBatchRetV1;
-import cn.daenx.yhchatsdk.framework.vo.v1.ret.ApiSendMsgRetV1;
+import cn.daenx.yhchatsdk.framework.vo.v1.req.*;
+import cn.daenx.yhchatsdk.framework.vo.v1.ret.*;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.json.JSONUtil;
 import org.springframework.beans.factory.annotation.Value;
@@ -72,4 +68,43 @@ public class ApiUtil {
         ApiEditMsgRetV1 apiEditMsgRetV1 = JSONUtil.toBean(body, ApiEditMsgRetV1.class);
         return apiEditMsgRetV1;
     }
+
+    /**
+     * 设置看板
+     *
+     * @param apiSetBoardReqV1
+     * @return
+     */
+    public static ApiSetBoardRetV1 setBoard(ApiSetBoardReqV1 apiSetBoardReqV1) {
+        String urlPost;
+        if (apiSetBoardReqV1.getRecvId() == null && apiSetBoardReqV1.getRecvType() == null) {
+            urlPost = url + "/board-all?token=" + token;
+        } else {
+            urlPost = url + "/board?token=" + token;
+        }
+        String content = JSONUtil.toJsonStr(apiSetBoardReqV1);
+        String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
+        ApiSetBoardRetV1 apiSetBoardRetV1 = JSONUtil.toBean(body, ApiSetBoardRetV1.class);
+        return apiSetBoardRetV1;
+    }
+
+    /**
+     * 取消设置看板
+     *
+     * @param apiDisBoardReqV1
+     * @return
+     */
+    public static ApiDisBoardRetV1 disBoard(ApiDisBoardReqV1 apiDisBoardReqV1) {
+        String urlPost;
+        if (apiDisBoardReqV1.getRecvId() == null && apiDisBoardReqV1.getRecvType() == null) {
+            urlPost = url + "/board-all-dismiss?token=" + token;
+        } else {
+            urlPost = url + "/board-dismiss?token=" + token;
+        }
+        String content = JSONUtil.toJsonStr(apiDisBoardReqV1);
+        String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
+        ApiDisBoardRetV1 apiDisBoardRetV1 = JSONUtil.toBean(body, ApiDisBoardRetV1.class);
+        return apiDisBoardRetV1;
+    }
+
 }
