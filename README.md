@@ -50,6 +50,8 @@ Core基于SpringBoot2.x、jdk8开发，Demo也基于SpringBoot2.x、jdk8开发�
 - [x] 发送消息
 - [x] 批量发送消息
 - [x] 编辑消息
+- [x] 设置看板
+- [x] 取消设置看板
 
 ## 🕊️ 快速开始
 
