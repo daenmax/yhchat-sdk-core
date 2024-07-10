@@ -70,6 +70,21 @@ public class ApiUtil {
     }
 
     /**
+     * 撤回消息
+     * 参数中的chatId、chatType需要和原消息保持一致，否则无法撤回
+     *
+     * @param apiRecallMsgReqV1
+     * @return
+     */
+    public static ApiRecallMsgRetV1 recallMsg(ApiRecallMsgReqV1 apiRecallMsgReqV1) {
+        String urlPost = url + "/recall?token=" + token;
+        String content = JSONUtil.toJsonStr(apiRecallMsgReqV1);
+        String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
+        ApiRecallMsgRetV1 apiRecallMsgRetV1 = JSONUtil.toBean(body, ApiRecallMsgRetV1.class);
+        return apiRecallMsgRetV1;
+    }
+
+    /**
      * 设置看板
      *
      * @param apiSetBoardReqV1
