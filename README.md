@@ -8,7 +8,7 @@
 <img src='https://img.shields.io/github/stars/daenmax/yhchat-sdk-core.svg?style=social&label=Stars' alt='star'>
 </a>
 <a href="https://github.com/daenmax/yhchat-sdk-core">
-<img src="https://img.shields.io/badge/version-v1.0.2-brightgreen.svg">
+<img src="https://img.shields.io/badge/version-v1.0.3-brightgreen.svg">
 </a>
 </p>
 
@@ -50,6 +50,7 @@ Core基于SpringBoot2.x、jdk8开发，Demo也基于SpringBoot2.x、jdk8开发�
 - [x] 发送消息
 - [x] 批量发送消息
 - [x] 编辑消息
+- [x] 撤回消息
 - [x] 设置看板
 - [x] 取消设置看板
 
