@@ -1,3 +1,5 @@
+使用CMD执行
+
 安装到本地仓库
 mvn clean install -DexcludePlugin=maven-gpg-plugin
 

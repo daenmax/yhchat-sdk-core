@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version>
+        <version>3.3.3</version>
         <relativePath/>
     </parent>
     <groupId>cn.daenx</groupId>
     <artifactId>yhchat-sdk-core</artifactId>
-    <version>1.0.3</version>
+    <version>1.1.0</version>
     <name>yhchat-sdk-core</name>
     <description>
         yhchat-sdk-core是云湖社交的Java版本的SDK核心服务，通过此Core可以快速构建您的云湖机器人，能让您以非常便捷的方式和云湖服务进行交互。
@@ -18,9 +18,9 @@
     <url>https://gitee.com/daenmax/yhchat-sdk-core</url>
 
     <properties>
-        <java.version>1.8</java.version>
-        <spring-boot.version>2.7.18</spring-boot.version>
-        <hutool.version>5.8.29</hutool.version>
+        <java.version>17</java.version>
+        <spring-boot.version>3.3.3</spring-boot.version>
+        <hutool.version>5.8.32</hutool.version>
     </properties>
 
     <dependencies>

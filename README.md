@@ -16,8 +16,12 @@
 
 云湖SDK Core服务，引入此 Core 可以快速构建您的云湖机器人，能让您以非常便捷的方式和云湖服务进行交互。
 
-Core基于SpringBoot2.x、jdk8开发，Demo也基于SpringBoot2.x、jdk8开发（您可以根据需求进行更换）
+Core版本支持情况
 
+| Core版本      | SpringBoot | JDK |
+|-------------|------------|-----|
+| 1.1.0及以上    | 3.x        | 17  |
+| 1.1.0以下（不含） | 2.x        | 8   |
 ## 🦊 链接
 
 ### 文档教程
@@ -72,7 +76,8 @@ Core基于SpringBoot2.x、jdk8开发，Demo也基于SpringBoot2.x、jdk8开发�
 ### 在启动类上添加包扫描
 
 ```java
-@ComponentScan({"cn.daenx.yhchatsdk", "cn.daenx.yhchatDemo"})
+//"cn.daenx.yhchatDemo.plugin" 是当前demo的插件所在包路径
+@ComponentScan({"cn.daenx.yhchatsdk", "cn.daenx.yhchatDemo.plugin"})
 ```
 
 ### 在配置文件中添加配置
