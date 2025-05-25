@@ -1,7 +1,7 @@
 package cn.daenx.yhchatsdk.framework.vo.v1.req;
 
 import cn.daenx.yhchatsdk.common.constant.ContentTypeConstant;
-import lombok.*;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ public class ApiSendMsgReqV1 {
     private String recvType;
     /**
      * 消息类型，取值如下
-     * text\image\file\markdown
+     * text\image\video\file\markdown\html
      */
     private String contentType;
     private ApiSendContentV1 content = new ApiSendContentV1();
@@ -43,13 +43,17 @@ public class ApiSendMsgReqV1 {
         /**
          * 当消息类型为image时
          */
-        private String imageUrl;
+        private String imageKey;
 
         /**
          * 当消息类型为file时，有值
          */
-        private String fileName;
-        private String fileUrl;
+        private String fileKey;
+
+        /**
+         * 当消息类型为video时，有值
+         */
+        private String videoKey;
 
         /**
          * 消息中包括button
@@ -114,16 +118,16 @@ public class ApiSendMsgReqV1 {
      *
      * @param recvType RecvTypeConstant.
      * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
-     * @param imageUrl 图片网络直链
+     * @param imageKey 图片Key, 通过图片上传接口获得
      * @return
      */
-    public ApiSendMsgReqV1 Image(String recvType, String recvId, String imageUrl) {
+    public ApiSendMsgReqV1 Image(String recvType, String recvId, String imageKey) {
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1();
         reqV1.recvId = recvId;
         reqV1.recvType = recvType;
         reqV1.contentType = ContentTypeConstant.IMAGE;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
-        contentV1.imageUrl = imageUrl;
+        contentV1.imageKey = imageKey;
         reqV1.content = contentV1;
         return reqV1;
     }
@@ -153,18 +157,56 @@ public class ApiSendMsgReqV1 {
      *
      * @param recvType RecvTypeConstant.
      * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
-     * @param fileName 文件名
-     * @param fileUrl  文件网络直链
+     * @param fileKey  文件Key, 通过文件上传接口获得
      * @return
      */
-    public ApiSendMsgReqV1 File(String recvType, String recvId, String fileName, String fileUrl) {
+    public ApiSendMsgReqV1 File(String recvType, String recvId, String fileKey) {
         ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1();
         reqV1.recvId = recvId;
         reqV1.recvType = recvType;
         reqV1.contentType = ContentTypeConstant.FILE;
         ApiSendContentV1 contentV1 = new ApiSendContentV1();
-        contentV1.fileName = fileName;
-        contentV1.fileUrl = fileUrl;
+        contentV1.fileKey = fileKey;
+        reqV1.content = contentV1;
+        return reqV1;
+    }
+
+    /**
+     * 视频消息
+     * 该方法只能调用一次，并且与其他类型方法互斥
+     *
+     * @param recvType RecvTypeConstant.
+     * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
+     * @param videoKey 视频Key, 通过视频上传接口获得
+     * @return
+     */
+    public ApiSendMsgReqV1 Video(String recvType, String recvId, String videoKey) {
+        ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1();
+        reqV1.recvId = recvId;
+        reqV1.recvType = recvType;
+        reqV1.contentType = ContentTypeConstant.VIDEO;
+        ApiSendContentV1 contentV1 = new ApiSendContentV1();
+        contentV1.videoKey = videoKey;
+        reqV1.content = contentV1;
+        return reqV1;
+    }
+
+    /**
+     * HTML消息
+     * 该方法只能调用一次，并且与其他类型方法互斥
+     *
+     * @param recvType RecvTypeConstant.
+     * @param recvId   当为USER时，填用户ID，当为GROUP时，填群ID
+     * @param text     HTML，支持的见https://www.yhchat.com/c/p/863
+     * @return
+     */
+    public ApiSendMsgReqV1 Html(String recvType, String recvId, String text) {
+        ApiSendMsgReqV1 reqV1 = new ApiSendMsgReqV1();
+        reqV1.recvId = recvId;
+        reqV1.recvType = recvType;
+        reqV1.contentType = ContentTypeConstant.HTML;
+        ApiSendContentV1 contentV1 = new ApiSendContentV1();
+        contentV1.text = text;
         reqV1.content = contentV1;
         return reqV1;
     }

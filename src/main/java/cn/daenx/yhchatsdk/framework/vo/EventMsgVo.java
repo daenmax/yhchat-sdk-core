@@ -196,8 +196,11 @@ public class EventMsgVo {
              * 当前消息类型
              * text 文本消息
              * image 图片消息
+             * video 视频消息
              * markdown Markdown消息
              * file 文件消息
+             * html 网页消息
+             * post 帖子消息
              */
             private String contentType;
 
