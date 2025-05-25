@@ -32,7 +32,7 @@ Core版本支持情况
 
 gitee：[yhchat-sdk-demo](https://gitee.com/daenmax/yhchat-sdk-demo)
 
-github：[yhchat-sdk-core](https://github.com/daenmax/yhchat-sdk-demo)
+github：[yhchat-sdk-demo](https://github.com/daenmax/yhchat-sdk-demo)
 
 ### 云湖官网
 
