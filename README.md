@@ -8,7 +8,7 @@
 <img src='https://img.shields.io/github/stars/daenmax/yhchat-sdk-core.svg?style=social&label=Stars' alt='star'>
 </a>
 <a href="https://github.com/daenmax/yhchat-sdk-core">
-<img src="https://img.shields.io/badge/version-v1.0.3-brightgreen.svg">
+<img src="https://img.shields.io/badge/version-v1.2.0-brightgreen.svg">
 </a>
 </p>
 
@@ -30,7 +30,9 @@ Core版本支持情况
 
 ### 官方Demo
 
-[yhchat-sdk-demo](https://gitee.com/daenmax/yhchat-sdk-demo)
+gitee：[yhchat-sdk-demo](https://gitee.com/daenmax/yhchat-sdk-demo)
+
+github：[yhchat-sdk-core](https://github.com/daenmax/yhchat-sdk-demo)
 
 ### 云湖官网
 
