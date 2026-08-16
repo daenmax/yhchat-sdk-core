@@ -1,7 +1,9 @@
 使用CMD执行
 
 安装到本地仓库
-mvn clean install -DexcludePlugin=maven-gpg-plugin
+mvn clean install -Dgpg.skip=true
 
 打包并上传到maven仓库
-mvn clean install deploy -P release
+mvn clean deploy
+
+完整教程：https://www.cnblogs.com/daen/p/22508629
