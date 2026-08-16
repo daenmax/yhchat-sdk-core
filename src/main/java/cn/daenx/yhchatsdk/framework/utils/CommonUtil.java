@@ -10,21 +10,25 @@ import org.springframework.stereotype.Component;
  * @author DaenMax
  */
 @Component
-class ConfigUtil {
+class CommonUtil {
     @Getter
     private static String token;
     @Getter
-    private static String url;
+    private static String mode;
+    @Getter
+    private static String httpUrl ="https://chat-go.jwzhd.com/open-apis/v1";
+    @Getter
+    private static String webSocketUrl="wss://ws.jwzhd.com/subscribe";
 
     @Value("${yhchat.token}")
     public void setToken(String token) {
-        ConfigUtil.token = token;
+        CommonUtil.token = token;
+    }
+    @Value("${yhchat.mode}")
+    public void setMode(String mode) {
+        CommonUtil.mode = mode;
     }
 
-    @Value("${yhchat.url}")
-    public void setUrl(String url) {
-        ConfigUtil.url = url;
-    }
 
 
 }

@@ -2,18 +2,8 @@ package cn.daenx.yhchatsdk.framework.utils;
 
 import cn.daenx.yhchatsdk.framework.vo.v1.req.*;
 import cn.daenx.yhchatsdk.framework.vo.v1.ret.*;
-import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.http.HttpRequest;
-import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-
-import java.io.PipedInputStream;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
-import java.util.HashMap;
 
 /**
  * API工具类（看板）
@@ -32,9 +22,9 @@ public class BoardUtil {
     public static ApiSetBoardRetV1 setBoard(ApiSetBoardReqV1 apiSetBoardReqV1) {
         String urlPost;
         if (apiSetBoardReqV1.getRecvId() == null && apiSetBoardReqV1.getRecvType() == null) {
-            urlPost = ConfigUtil.getUrl() + "/bot/board-all?token=" + ConfigUtil.getToken();
+            urlPost = CommonUtil.getHttpUrl() + "/bot/board-all?token=" + CommonUtil.getToken();
         } else {
-            urlPost = ConfigUtil.getUrl() + "/bot/board?token=" + ConfigUtil.getToken();
+            urlPost = CommonUtil.getHttpUrl() + "/bot/board?token=" + CommonUtil.getToken();
         }
         String content = JSONUtil.toJsonStr(apiSetBoardReqV1);
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
@@ -51,9 +41,9 @@ public class BoardUtil {
     public static ApiDisBoardRetV1 disBoard(ApiDisBoardReqV1 apiDisBoardReqV1) {
         String urlPost;
         if (apiDisBoardReqV1.getRecvId() == null && apiDisBoardReqV1.getRecvType() == null) {
-            urlPost = ConfigUtil.getUrl() + "/bot/board-all-dismiss?token=" + ConfigUtil.getToken();
+            urlPost = CommonUtil.getHttpUrl() + "/bot/board-all-dismiss?token=" + CommonUtil.getToken();
         } else {
-            urlPost = ConfigUtil.getUrl() + "/bot/board-dismiss?token=" + ConfigUtil.getToken();
+            urlPost = CommonUtil.getHttpUrl() + "/bot/board-dismiss?token=" + CommonUtil.getToken();
         }
         String content = JSONUtil.toJsonStr(apiDisBoardReqV1);
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();

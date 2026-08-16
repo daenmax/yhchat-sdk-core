@@ -7,8 +7,6 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.io.PipedInputStream;
 import java.net.URI;
@@ -31,7 +29,7 @@ public class MessageUtil {
      * @return
      */
     public static ApiSendMsgRetV1 sendMsg(ApiSendMsgReqV1 apiSendMsgReqV1) {
-        String urlPost = ConfigUtil.getUrl() + "/bot/send?token=" + ConfigUtil.getToken();
+        String urlPost = CommonUtil.getHttpUrl() + "/bot/send?token=" + CommonUtil.getToken();
         String content = JSONUtil.toJsonStr(apiSendMsgReqV1);
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
         ApiSendMsgRetV1 apiSendMsgRetV1 = JSONUtil.toBean(body, ApiSendMsgRetV1.class);
@@ -45,7 +43,7 @@ public class MessageUtil {
      * @return
      */
     public static ApiSendMsgBatchRetV1 sendMsgBatch(ApiSendMsgBatchReqV1 apiSendMsgBatchReqV1) {
-        String urlPost = ConfigUtil.getUrl() + "/bot/batch_send?token=" + ConfigUtil.getToken();
+        String urlPost = CommonUtil.getHttpUrl() + "/bot/batch_send?token=" + CommonUtil.getToken();
         String content = JSONUtil.toJsonStr(apiSendMsgBatchReqV1);
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
         ApiSendMsgBatchRetV1 apiSendMsgBatchRetV1 = JSONUtil.toBean(body, ApiSendMsgBatchRetV1.class);
@@ -61,7 +59,7 @@ public class MessageUtil {
      * @throws Exception
      */
     public static ApiSendMsgStreamRetV1 sendMsgStream(ApiSendMsgStreamReqV1 apiSendMsgStreamReqV1) throws Exception {
-        String uri = ConfigUtil.getUrl() + "/bot/send-stream?token=" + ConfigUtil.getToken() +
+        String uri = CommonUtil.getHttpUrl() + "/bot/send-stream?token=" + CommonUtil.getToken() +
                 "&recvId=" + apiSendMsgStreamReqV1.getRecvId() +
                 "&recvType=" + apiSendMsgStreamReqV1.getRecvType() +
                 "&contentType=" + apiSendMsgStreamReqV1.getContentType();
@@ -90,7 +88,7 @@ public class MessageUtil {
      * @return
      */
     public static ApiEditMsgRetV1 editMsg(ApiEditMsgReqV1 apiEditMsgReqV1) {
-        String urlPost = ConfigUtil.getUrl() + "/bot/edit?token=" + ConfigUtil.getToken();
+        String urlPost = CommonUtil.getHttpUrl() + "/bot/edit?token=" + CommonUtil.getToken();
         String content = JSONUtil.toJsonStr(apiEditMsgReqV1);
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
         ApiEditMsgRetV1 apiEditMsgRetV1 = JSONUtil.toBean(body, ApiEditMsgRetV1.class);
@@ -105,7 +103,7 @@ public class MessageUtil {
      * @return
      */
     public static ApiRecallMsgRetV1 recallMsg(ApiRecallMsgReqV1 apiRecallMsgReqV1) {
-        String urlPost = ConfigUtil.getUrl() + "/bot/recall?token=" + ConfigUtil.getToken();
+        String urlPost = CommonUtil.getHttpUrl() + "/bot/recall?token=" + CommonUtil.getToken();
         String content = JSONUtil.toJsonStr(apiRecallMsgReqV1);
         String body = HttpRequest.post(urlPost).header("Content-Type", "application/json; charset=utf-8").body(content).execute().body();
         ApiRecallMsgRetV1 apiRecallMsgRetV1 = JSONUtil.toBean(body, ApiRecallMsgRetV1.class);
@@ -120,7 +118,7 @@ public class MessageUtil {
      * @return
      */
     public static ApiMessagesRetV1 messages(ApiMessagesReqV1 apiMessagesReqV1) {
-        String urlPost = ConfigUtil.getUrl() + "/bot/messages?token=" + ConfigUtil.getToken() +
+        String urlPost = CommonUtil.getHttpUrl() + "/bot/messages?token=" + CommonUtil.getToken() +
                 "&chat-id=" + apiMessagesReqV1.getChatId() +
                 "&chat-type=" + apiMessagesReqV1.getChatType();
         if (ObjectUtil.isNotEmpty(apiMessagesReqV1.getMsgId())) {
@@ -145,7 +143,7 @@ public class MessageUtil {
      * @return
      */
     public static ApiUploadRetV1 upload(ApiUploadReqV1 apiUploadReqV1) {
-        String urlPost = ConfigUtil.getUrl() + "/" + apiUploadReqV1.getType() + "/upload?token=" + ConfigUtil.getToken();
+        String urlPost = CommonUtil.getHttpUrl() + "/" + apiUploadReqV1.getType() + "/upload?token=" + CommonUtil.getToken();
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put(apiUploadReqV1.getType(), FileUtil.file(apiUploadReqV1.getFilePath()));
         String body = HttpUtil.post(urlPost, paramMap);
