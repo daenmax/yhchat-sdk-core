@@ -8,7 +8,7 @@
 <img src='https://img.shields.io/github/stars/daenmax/yhchat-sdk-core.svg?style=social&label=Stars' alt='star'>
 </a>
 <a href="https://github.com/daenmax/yhchat-sdk-core">
-<img src="https://img.shields.io/badge/version-v1.2.0-brightgreen.svg">
+<img src="https://img.shields.io/badge/version-v1.3.0-brightgreen.svg">
 </a>
 </p>
 
@@ -20,7 +20,7 @@ Core版本支持情况
 
 | Core版本      | SpringBoot | JDK |
 |-------------|------------|-----|
-| 1.1.0及以上    | 3.x        | 17  |
+| 1.1.0及以上    | 3.x        | 17+ |
 | 1.1.0以下（不含） | 2.x        | 8   |
 ## 🦊 链接
 
