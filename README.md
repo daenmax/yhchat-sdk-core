@@ -39,6 +39,9 @@ github：[yhchat-sdk-demo](https://github.com/daenmax/yhchat-sdk-demo)
 [云湖社交](https://www.yhchat.com/)
 
 ## 🦄 实现
+### 协议
+- [x] HTTP协议
+- [ ] WebSocket协议（等官方完善）
 
 ### 事件
 
@@ -52,7 +55,7 @@ github：[yhchat-sdk-demo](https://github.com/daenmax/yhchat-sdk-demo)
 - [x] 机器人设置事件
 
 ### 接口
-
+#### 消息管理
 - [x] 发送消息
 - [x] 批量发送消息
 - [x] 流式发送消息
@@ -62,6 +65,18 @@ github：[yhchat-sdk-demo](https://github.com/daenmax/yhchat-sdk-demo)
 - [x] 上传图片
 - [x] 上传视频
 - [x] 上传文件
+#### 群组管理
+- [x] 群成员禁言
+- [x] 移除群成员
+- [x] 群内消息类型控制
+- [x] 获取群标签列表
+- [x] 创建标签
+- [x] 修改标签
+- [x] 删除标签
+- [x] 给用户添加标签
+- [x] 给用户移除标签
+
+#### 看板管理
 - [x] 设置看板
 - [x] 取消设置看板
 
@@ -94,7 +109,9 @@ yhchat:
   # 是否打印原始消息日志
   printLog: true
   # 机器人发送消息Token，在控制台中可以看到
-  token: "5e4exxxxxxxxxxxxxxxe3dff6760"
+  token: "5e4efc1xxxxxxxxxxxx3dff6760"
+  # 接入模式，1=http，2=websocket
+  mode: "1"
 ```
 
 ### 开发插件
