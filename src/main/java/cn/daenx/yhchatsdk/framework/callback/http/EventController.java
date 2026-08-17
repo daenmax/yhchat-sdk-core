@@ -1,4 +1,4 @@
-package cn.daenx.yhchatsdk.framework.controller;
+package cn.daenx.yhchatsdk.framework.callback.http;
 
 
 import cn.daenx.yhchatsdk.common.utils.ServletUtils;
@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 云湖事件入口
+ * 云湖事件入口（HTTP模式）
  *
  * @author DaenMax
  */
@@ -29,7 +29,7 @@ public class EventController {
     @PostMapping("/msg")
     public Result msg(@RequestBody EventMsgVo eventMsgVo) {
         if (printLog) {
-            log.info("【core】接收到来自IP[{}]的请求消息：{}，原始消息为{}", ServletUtils.getClientIP(), eventMsgVo.getHeader().getEventType(), eventMsgVo.toString());
+            log.info("【core】接收到来自HTTP，IP[{}]的请求消息：{}，原始消息为{}", ServletUtils.getClientIP(), eventMsgVo.getHeader().getEventType(), eventMsgVo.toString());
         }
         GlobalExecutorSubmit.submit(eventMsgVo);
         return Result.ok();

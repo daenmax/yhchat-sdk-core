@@ -8,7 +8,7 @@
 <img src='https://img.shields.io/github/stars/daenmax/yhchat-sdk-core.svg?style=social&label=Stars' alt='star'>
 </a>
 <a href="https://github.com/daenmax/yhchat-sdk-core">
-<img src="https://img.shields.io/badge/version-v1.3.0-brightgreen.svg">
+<img src="https://img.shields.io/badge/version-v1.4.0-brightgreen.svg">
 </a>
 </p>
 

@@ -16,9 +16,9 @@ public class CommonUtil {
     @Getter
     private static String mode;
     @Getter
-    private static String httpUrl;
+    private static String httpUrl = "https://chat-go.jwzhd.com/open-apis/v1";
     @Getter
-    private static String webSocketUrl;
+    private static String webSocketUrl = "wss://ws.jwzhd.com/subscribe";
 
     @Value("${yhchat.token}")
     public void setToken(String token) {
@@ -27,15 +27,5 @@ public class CommonUtil {
     @Value("${yhchat.mode}")
     public void setMode(String mode) {
         CommonUtil.mode = mode;
-    }
-
-    @Value("${yhchat-config.httpUrl}")
-    public void setHttpUrl(String httpUrl) {
-        CommonUtil.httpUrl = httpUrl;
-    }
-
-    @Value("${yhchat-config.webSocketUrl}")
-    public void setWebSocketUrl(String webSocketUrl) {
-        CommonUtil.webSocketUrl = webSocketUrl;
     }
 }

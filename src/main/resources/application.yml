@@ -1,11 +1,8 @@
-# 这个只是我开发core时测试使用，实际发布时，这个可以去掉，因为在引用此core时，这个值会被覆盖掉
+# 这个只是我开发core时测试使用，实际发布时，这个可以去掉，因为在引用此core时，这些值会被覆盖掉
 server:
   port: 8034
   servlet:
     context-path: /yhchat
-yhchat-config:
-  httpUrl: "https://chat-go.jwzhd.com/open-apis/v1"
-  webSocketUrl: "wss://ws.jwzhd.com/subscribe"
 
 
 yhchat:
