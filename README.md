@@ -41,7 +41,7 @@ github：[yhchat-sdk-demo](https://github.com/daenmax/yhchat-sdk-demo)
 ## 🦄 实现
 ### 协议
 - [x] HTTP协议
-- [ ] WebSocket协议（等官方完善）
+- [x] WebSocket协议
 
 ### 事件
 
