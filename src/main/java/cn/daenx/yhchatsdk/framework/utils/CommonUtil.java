@@ -5,20 +5,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * API配置工具类
+ * 配置工具类
  *
  * @author DaenMax
  */
 @Component
-class CommonUtil {
+public class CommonUtil {
     @Getter
     private static String token;
     @Getter
     private static String mode;
     @Getter
-    private static String httpUrl ="https://chat-go.jwzhd.com/open-apis/v1";
+    private static String httpUrl;
     @Getter
-    private static String webSocketUrl="wss://ws.jwzhd.com/subscribe";
+    private static String webSocketUrl;
 
     @Value("${yhchat.token}")
     public void setToken(String token) {
@@ -29,6 +29,13 @@ class CommonUtil {
         CommonUtil.mode = mode;
     }
 
+    @Value("${yhchat-config.httpUrl}")
+    public void setHttpUrl(String httpUrl) {
+        CommonUtil.httpUrl = httpUrl;
+    }
 
-
+    @Value("${yhchat-config.webSocketUrl}")
+    public void setWebSocketUrl(String webSocketUrl) {
+        CommonUtil.webSocketUrl = webSocketUrl;
+    }
 }

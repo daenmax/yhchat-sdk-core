@@ -35,15 +35,4 @@ public class EventController {
         return Result.ok();
     }
 
-//    /**
-//     * 接收云湖事件推送
-//     *
-//     * @return
-//     */
-//    @PostMapping("/msg")
-//    public Result msg(@RequestBody String eventMsgVo) {
-//        log.info(eventMsgVo);
-//        return Result.ok();
-//    }
-
 }

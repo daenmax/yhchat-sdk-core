@@ -3,6 +3,10 @@ server:
   port: 8034
   servlet:
     context-path: /yhchat
+yhchat-config:
+  httpUrl: "https://chat-go.jwzhd.com/open-apis/v1"
+  webSocketUrl: "wss://ws.jwzhd.com/subscribe"
+
 
 yhchat:
   # 是否打印原始消息日志
@@ -10,3 +14,5 @@ yhchat:
   token: "33b3b0e83a964fe290fde6ef5b1a2e70"
   # 接入模式，空或者1=http，2=websocket
   mode: "2"
+
+
